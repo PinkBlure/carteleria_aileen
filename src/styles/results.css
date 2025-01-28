@@ -1,0 +1,188 @@
+@import url('./base/base.css');
+@import url('./base/normalize.css');
+
+.alert {
+  background-color: var(--black);
+  color: var(--white);
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 95%;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+.container h1 {
+    margin-left: 20px;
+    text-align: left;
+}
+
+/* Sección del cuadro azul */
+#entrega-premios {
+    background-color: var(--blue3);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 98%;
+    margin: 20px auto;
+}
+
+#entrega-premios h2 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--black);
+}
+
+#entrega-premios p,
+#entrega-premios h3 {
+    font-size: 1.8rem;
+    color: var(--black);
+    margin: 10px 0 0;
+}
+
+/* Contenedor de resultados */
+.resultados {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 40px;
+    gap: 1rem;
+    position: relative;
+}
+
+/* Tarjetas de los ganadores */
+.top {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--white);
+    border: 2px solid var(--blue2);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+.top h4 {
+    font-size: 1.8rem;
+    color: var(--black);
+    margin-bottom: 12px;
+}
+
+.top img.cartel-imagen {
+    width: 80%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: var(--gray);
+}
+
+.top p {
+    margin: 5px 0;
+    font-size: 1.8rem;
+    color: var(--black);
+}
+
+/* Base del podio */
+.podio-base {
+    width: 32%;
+    height: 30px;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    bottom: 0;
+}
+
+/* Oro */
+.podio-base.gold {
+    background-color: gold;
+    height: 130px;
+    transform: translateX(-105%);
+}
+
+/* Plata */
+.podio-base.silver {
+    background-color: silver;
+    height: 100px;
+    transform: translateX(0%);
+}
+
+/* Bronce */
+.podio-base.bronze {
+    background-color: #cd7f32;
+    height: 70px;
+    transform: translateX(105%);
+}
+
+/* Posicionamiento para las tarjetas */
+.resultados > .top:nth-child(1) {
+    transform: translateY(-70px);
+}
+
+.resultados > .top:nth-child(2) {
+    transform: translateY(-50px);
+}
+
+.resultados > .top:nth-child(3) {
+    transform: translateY(-30px);
+}
+
+
+/* Responsivo para móviles pequeños (480px) */
+@media screen and (max-width: 480px) {
+    .container h1 {
+        font-size: 1.8rem; /* Texto aún más pequeño */
+    }
+
+    #entrega-premios h2 {
+        font-size: 1.8rem; /* Ajusta el tamaño del texto */
+    }
+
+    #entrega-premios p,
+    #entrega-premios h3 {
+        font-size: 1.8rem;
+    }
+
+    .top {
+        width: 100%; /* Tarjetas ocupan todo el ancho */
+        margin-top: 50px;
+    }
+
+    .resultados {
+        flex-direction: column; /* Las tarjetas se colocan verticalmente */
+        gap: 20px; /* Menor espacio entre elementos */
+    }
+
+    /* Base del podio ajustada */
+    .podio-base {
+        width: 240px; /* Aumento el ancho */
+        height: 20px; /* Aumento la altura */
+    }
+
+    .podio-base.gold {
+        transform: scaleX(1.9) scaleY(0.75) translateY(-1900px); /* Ajuste ligero para la base de oro */
+        margin-right: 85px;
+        
+    }
+
+    .podio-base.silver {
+        transform: scaleX(1.9) scaleY(0.75) translateY(-950px); /* Ajuste ligero para la base de plata */
+        margin-right: 85px;
+        
+    }
+
+    .podio-base.bronze {
+        transform: scaleX(1.9) scaleY(0.75) ; /* Ajuste ligero para la base de bronce */
+        margin-right: 85px;
+        
+    }
+}

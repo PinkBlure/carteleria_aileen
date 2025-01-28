@@ -1,0 +1,45 @@
+:root {
+  --blue0: rgb(1, 39, 91);
+  --blue1: #0067C2;
+  --blue2: #1D95FF;
+  --blue3: #4AAAFF;
+  --blue4: #78BFFF;
+  --blue5: #A5D5FF;
+  --white: #ffffff;
+  --gray: #9F9F9F;
+  --black: #1E1E1E;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+main {
+  flex: 1 0 auto;
+  padding: 2rem 2rem;
+  font-size: 1.8rem;
+}
+
+footer {
+  flex-shrink: 0;
+  width: 100%;
+}

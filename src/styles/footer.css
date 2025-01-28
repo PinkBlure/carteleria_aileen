@@ -1,0 +1,45 @@
+@import url('./base/base.css');
+@import url('./base/normalize.css');
+
+.footer_container {
+  background-color: var(--blue0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+  font-size: 2rem;
+}
+
+footer p {
+  font-size: 1.5rem;
+  color: var(--white);
+  margin: 0;
+}
+
+footer .nav {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+
+  .footer_container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 2rem;
+  }
+
+  footer .nav {
+    grid-column: 1 / 5;
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+  }
+
+  footer p {
+    grid-column: 1 / 5;
+    grid-row: 2;
+    text-align: center;
+  }
+  
+}
