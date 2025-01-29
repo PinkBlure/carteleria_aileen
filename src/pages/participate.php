@@ -14,14 +14,13 @@
 
 <body>
 
-  <section class="alert">
+  <section class="alert text-align-center">
     <?php
     require_once "../components/component_alert.php";
     ?>
   </section>
 
   <div>
-
     <header class="header_container">
       <a href="../../index.php" class="logo_sagaseta_container"><img src="../img/logo_sagaseta.svg" alt="logo" class="logo_sagaseta"></a>
       <h1 class="header_title">Concurso día de Canarias</h1>
@@ -35,28 +34,87 @@
   </div>
 
 
-  <main class="formulario-centro">
-    <div class="caja_participacion">
-      <form action="cx_participation.php" method="POST" enctype="multipart/form-data">
-        <h2>Formulario de Participación</h2>
-        <label for="cial">CIAL del Usuario:</label>
-        <input type="text" name="cial" id="cial" maxlength="20" required>
+  <main>
 
-        <label for="pin">PIN del Usuario:</label>
-        <input type="password" name="pin" id="pin" maxlength="4" required>
-
-        <label for="titulo">Nombre del Cartel:</label>
-        <input type="text" name="titulo" id="titulo" maxlength="100" required>
-
+    <h1>Formulario de participación</h1>
+    <form action="cx_participation.php" method="POST" enctype="multipart/form-data" class="background-3 flex-column data-box max-width margin-bt-6">
+      <fieldset class="border-none flex-column gap-1 max-width">
+        <label for="cial">CIAL del usuario:</label>
+        <input type="text" name="cial" id="cial" maxlength="20" required class="data-box bordered">
+      </fieldset>
+      <fieldset class="border-none flex-column gap-1 max-width">
+        <label for="pin">PIN del usuario:</label>
+        <input type="password" name="pin" id="pin" maxlength="4" required class="data-box bordered">
+      </fieldset>
+      <fieldset class="border-none flex-column gap-1 max-width">
+        <label for="titulo">Nombre del cartel:</label>
+        <input type="text" name="titulo" id="titulo" maxlength="100" required class="data-box bordered">
+      </fieldset>
+      <fieldset class="border-none flex-column gap-1 max-width">
         <label for="descripcion">Descripción del cartel:</label>
-        <input type="text" name="descripcion" id="descripcion" maxlength="100" required>
+        <input type="text" name="descripcion" id="descripcion" maxlength="100" required class="data-box bordered">
+      </fieldset>
+      <fieldset class="border-none flex-column gap-1 max-width">
+        <label for="imagen">Selecciona la imagen del cartel:</label>
+        <input type="file" name="imagen" id="imagen" accept="image/*" required class="data-box bordered">
+      </fieldset>
+      <fieldset class="border-none flex-column gap-1 max-width">
+        <button class="button" type="submit">Subir cartel</button>
+      </fieldset>
+    </form>
 
-        <label for="imagen">Selecciona la Imagen del Cartel:</label>
-        <input type="file" name="imagen" id="imagen" accept="image/*" required>
+    <h1>¿Cuál es mi CIAL?</h1>
+    <section class="flex-column gap-1-5 margin-bt-6">
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 1</div>
+        <div class="data-box bordered">Entrar al portal de <a href="https://www.gobiernodecanarias.org/educacion/PEKWEB/Ekade">Pincel Ekade</a></div>
+        <div class="data-box bordered flex-column centered">
+          <img src="../img/ekade.png" class="max-width">
+        </div>
+      </div>
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 2</div>
+        <div class="data-box bordered">Logear con tu credencial</div>
+        <div class="data-box bordered flex-column centered">
+          <img src="../img/login.png" class="max-width">
+        </div>
+      </div>
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 3</div>
+        <div class="data-box bordered">Tu CIAL se encuentra en la zona azul</div>
+        <div class="data-box bordered flex-column centered">
+          <img src="../img/gestion.png" class="max-width">
+        </div>
+      </div>
+    </section>
 
-        <button class="button" type="submit">Subir Cartel</button>
-      </form>
-    </div>
+    <h1>¿Cuál es mi PIN?</h1>
+    <section class="flex-column gap-1-5 margin-bt-6">
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 1</div>
+        <div class="data-box bordered">Tu PIN son los últimos 4 dígitos de tu DNI sin letra</div>
+        <div class="data-box bordered flex-column centered">
+          <img src="../img/dni.png" class="max-width">
+        </div>
+      </div>
+    </section>
+
+    <h1>¿Qué tamaño debe tener mi cartel?</h1>
+    <section class="flex-column gap-1-5 margin-bt-6">
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 1</div>
+        <div class="data-box bordered">El cartel debe presentarse en formato vertical y en tamaño DIN A3 (3508 x 4961 píxeles).</div>
+      </div>
+    </section>
+
+    <h1>¿En qué formato debo entregarlo?</h1>
+    <section class="flex-column gap-1-5 margin-bt-6">
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 1</div>
+        <div class="data-box bordered">El cartel debe subirse en formato PDF.</div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer_container">

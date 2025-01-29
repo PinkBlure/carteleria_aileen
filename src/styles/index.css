@@ -49,6 +49,8 @@
   font-size: 20px;
 }
 
+/* Media Queries */
+
 @media (min-width: 768px) {
   .gridded {
     display: grid;

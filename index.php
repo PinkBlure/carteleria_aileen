@@ -34,7 +34,7 @@
 
   <main>
 
-    <h1>Fechas del Concurso</h1>
+    <h1>Fechas del concurso</h1>
     <section class="flex-column gap-1-5 margin-bt-6">
       <?php
       require_once "src/db/cx_date.php";

@@ -1,71 +1,68 @@
-@import url('./base/base.css');
-@import url('./base/normalize.css');
+/* Común */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-box {
+  max-width: 100%;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-1-5 {
+  gap: 1.5rem;
+}
+
+.margin-bt-6 {
+  margin-bottom: 6rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.background-3 {
+  background-color: var(--blue3);
+}
+
+.bordered {
+  border: 2px solid var(--blue3);
+}
+
+.border-none {
+  border: none;
+}
+
+.min-width {
+  min-width: fit-content;
+}
+
+.max-width {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Zona alert */
 
 .alert {
-    background-color: var(--black);
-    color: var(--white);
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-/* General del body */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    height: 100vh; /* Ocupa toda la altura de la pantalla */
-}
-
-/* Main */
-main {
-    flex: 1; /* Ocupa el resto del espacio */
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Centra el contenido horizontalmente en la izquierda */
-    padding: 20px;
-}
-
-/* Formulario */
-form {
-    background-color: var(--blue3); /* Fondo solicitado */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
-    width: 400px;
-}
-
-/* Estilo para labels y campos */
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: var(--white);
-}
-
-input, button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Botón */
-.button {
-    background-color: var(--white);
-    color: var(--black);
-    font-size: 1.8rem;
-    border-radius:8px;
-    box-shadow: 0 4px 5px rgba(0,0,0,0.2);
-    text-align:center;
-    line-height:1.5;
-    display:inline-block;
-    text-decoration: none;
-    transition:background-color 0.2s ease;
-}
-
-.button:hover {
-    background-color: var(--blue5);
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 20px;
 }

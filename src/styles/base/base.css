@@ -51,6 +51,34 @@ h1 {
   text-align: center;
 }
 
+label {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+button {
+  background-color: var(--blue0);
+  color: var(--white);
+  font-size: 2.2rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 5px rgba(0,0,0,0.2);
+  text-align:center;
+  line-height:1.5;
+  display:inline-block;
+  text-decoration: none;
+  transition:background-color 0.2s ease;
+  font-weight: bold;
+  border-radius: 1rem;
+  border: 2px solid var(--black);
+}
+
+button:hover {
+  background-color: var(--blue5);
+  color: var(--black);
+  font-weight: bold;
+  border: 2px solid var(--blue3);
+}
+
 @media (min-width: 768px) {
   main {
     max-width: 80%;
