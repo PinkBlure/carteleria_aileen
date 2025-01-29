@@ -1,7 +1,3 @@
-<?php
-// Verificar si hay mensajes en el GET
-$message = isset($_GET['message']) ? $_GET['message'] : '';
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,14 +14,15 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
 </head>
 
 <body>
-  <section class="alert">
+  <section class="alert text-align-center">
     <?php
-      require_once "../components/component_alert.php";
+    require_once "../components/component_alert.php";
     ?>
+
+
   </section>
 
   <div>
-
     <header class="header_container">
       <a href="../../index.php" class="logo_sagaseta_container"><img src="../img/logo_sagaseta.svg" alt="logo" class="logo_sagaseta"></a>
       <h1 class="header_title">Concurso día de Canarias</h1>
@@ -39,60 +36,62 @@ $message = isset($_GET['message']) ? $_GET['message'] : '';
   </div>
 
   <main>
-  <section class="requirements">
-      <h1>Requisitos para votar:</h1>
-      <div class="steps-container">
-        <!-- Paso 1 -->
-        <div class="step">Requisito 1</div>
-        <div class="description">Sólo se admite un <strong>ÚNICO</strong> voto por persona</div>
-        <!-- Paso 2 -->
-        <div class="step">Requisito 2</div>
-        <div class="description">Es necesario tener <strong>CIAL Y PIN</strong></div>
-        <!-- Paso 3 -->
-        <div class="step">Requisito 3</div>
-        <div class="description">Una vez emitido el voto, <strong>NO SE PODRÁ MODIFICAR</strong></div>
+
+    <?php
+
+    if (isset($_GET['id'])) {
+      $id = $_GET['id'];
+    } else {
+      echo "<div class='data-box' style='border: 2px solid red'>Este cartel no existe</div>";
+    }
+
+    if (isset($_GET['error'])) {
+      echo "<div class='data-box' style='border: 2px solid red'>" .
+        $mensaje = htmlspecialchars($_GET['error']) .
+        "</div>";
+    }
+
+    if (isset($_GET['accept'])) {
+      echo "<div class='data-box' style='border: 2px solid green'>" .
+        $mensaje = htmlspecialchars($_GET['accept']) .
+        "</div>";
+    }
+    ?>
+
+    <h1>Requisitos para votar</h1>
+    <section class="flex-column gap-1-5 margin-bt-6">
+      <div class="flex-column gap-1 gridded-inverse">
+        <div class="data-box background-3 font-bold text-align-center">Requisito 1</div>
+        <div class="data-box bordered">Sólo se admite un <strong>ÚNICO</strong> voto por persona</div>
+      </div>
+      <div class="flex-column gap-1 gridded-inverse">
+        <div class="data-box background-3 font-bold text-align-center">Requisito 2</div>
+        <div class="data-box bordered">Es necesario tener <strong>CIAL Y PIN</strong></div>
+      </div>
+      <div class="flex-column gap-1 gridded-inverse">
+        <div class="data-box background-3 font-bold text-align-center">Requisito 3</div>
+        <div class="data-box bordered">Una vez emitido el voto, <strong>NO SE PODRÁ MODIFICAR</strong></div>
       </div>
     </section>
-    <div class="form-container">
-      <h1>Votación</h1>
-      <?php if ($message): ?>
-        <div class="message">
-          <?php
-          switch ($message) {
-            case 'voted':
-              echo "<p class='success'>¡Gracias por tu voto!</p>";
-              break;
-            case 'userVoted':
-              echo "<p class='error'>Ya has votado anteriormente.</p>";
-              break;
-            case 'userNotValid':
-              echo "<p class='error'>Usuario o PIN no válidos.</p>";
-              break;
-            default:
-              echo "<p class='error'>Ocurrió un error desconocido.</p>";
-              break;
-          }
-          ?>
-        </div>
-      <?php endif; ?>
 
-      <form action="../scripts/votar.php" method="POST">
-        <div class="form-group">
-          <label for="cial">CIAL (ID de Usuario):</label>
-          <input type="text" id="cial" name="cial" required maxlength="20" placeholder="Ingresa tu CIAL">
-        </div>
-        <div class="form-group">
-          <label for="pin">PIN:</label>
-          <input type="password" id="pin" name="pin" required maxlength="10" placeholder="Ingresa tu PIN">
-        </div>
-        <div class="form-group">
-          <label for="id_cartel">ID del Cartel:</label>
-          <input type="text" id="id_cartel" name="id_cartel" required maxlength="10" placeholder="Ingresa el ID del Cartel">
-        </div>
-        <button type="submit" class="btn-submit">Votar</button>
-      </form>
-    </div>
+    <h1>Formulario de votación</h1>
+
+    <form action="../db/cx_vote.php" method="POST" enctype="multipart/form-data" class="background-3 flex-column data-box max-width margin-bt-6">
+      <fieldset class="border-none flex-column gap-1 max-width">
+        <label for="cial">CIAL del usuario:</label>
+        <input type="text" name="cial" id="cial" maxlength="20" required class="data-box bordered">
+      </fieldset>
+      <fieldset class="border-none flex-column gap-1 max-width">
+        <label for="pin">PIN del usuario:</label>
+        <input type="password" name="pin" id="pin" maxlength="4" required class="data-box bordered">
+      </fieldset>
+      <input type="hidden" name="id" value="<?php echo htmlspecialchars($_GET['id']); ?>">
+      <fieldset class="border-none flex-column gap-1 max-width">
+        <button class="button" type="submit">Votar cartel</button>
+      </fieldset>
+    </form>
   </main>
+
 
   <footer class="footer_container">
     <div class="nav">

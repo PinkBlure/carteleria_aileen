@@ -39,7 +39,8 @@
   </div>
 
   <main>
-    <section class="data-box flex-column gap-1-5 gridded">
+    <h1>Galería de carteles</h1>
+    <section class="flex-column gap-1-5 gridded">
     <?php
       require_once "../db/cx_gallery.php";
       $resultados = getGallery();

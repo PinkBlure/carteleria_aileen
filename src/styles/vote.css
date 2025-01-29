@@ -1,6 +1,73 @@
-@import url('./base/base.css');
-@import url('./base/normalize.css');
+/* Común */
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-box {
+  max-width: 100%;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-1-5 {
+  gap: 1.5rem;
+}
+
+.margin-bt-6 {
+  margin-bottom: 6rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.background-3 {
+  background-color: var(--blue3);
+}
+
+.bordered {
+  border: 2px solid var(--blue3);
+}
+
+.border-none {
+  border: none;
+}
+
+/* Zona alert */
+
+.alert {
+  background-color: var(--black);
+  color: var(--white);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Media Queries */
+
+@media (min-width: 768px) {
+  .gridded {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .gridded-inverse {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+/* 
 main {
   display: flex;
   flex-direction: column;
@@ -51,7 +118,6 @@ main {
   line-height: 1.5;
 }
 
-/* Ajustes para pantallas más grandes (>=768px) */
 @media (min-width: 768px) {
   main {
     max-width: 1400px;
@@ -74,4 +140,4 @@ main {
   text-align: center;
   font-weight: bold;
   font-size: 20px;
-}
+} */
