@@ -33,11 +33,24 @@
     </div>
   </div>
 
-
   <main>
 
+    <?php
+    if (isset($_GET['error'])) {
+      echo "<div class='data-box' style='border: 2px solid red'>" .
+      $mensaje = htmlspecialchars($_GET['error']) .
+      "</div>";
+    }
+
+    if (isset($_GET['accept'])) {
+      echo "<div class='data-box' style='border: 2px solid green'>" .
+      $mensaje = htmlspecialchars($_GET['accept']) .
+      "</div>";
+    }
+    ?>
+
     <h1>Formulario de participación</h1>
-    <form action="cx_participation.php" method="POST" enctype="multipart/form-data" class="background-3 flex-column data-box max-width margin-bt-6">
+    <form action="../db/cx_participation.php" method="POST" enctype="multipart/form-data" class="background-3 flex-column data-box max-width margin-bt-6">
       <fieldset class="border-none flex-column gap-1 max-width">
         <label for="cial">CIAL del usuario:</label>
         <input type="text" name="cial" id="cial" maxlength="20" required class="data-box bordered">
@@ -56,7 +69,7 @@
       </fieldset>
       <fieldset class="border-none flex-column gap-1 max-width">
         <label for="imagen">Selecciona la imagen del cartel:</label>
-        <input type="file" name="imagen" id="imagen" accept="image/*" required class="data-box bordered">
+        <input type="file" name="imagen" id="imagen" accept="application/pdf" required class="data-box bordered">
       </fieldset>
       <fieldset class="border-none flex-column gap-1 max-width">
         <button class="button" type="submit">Subir cartel</button>
