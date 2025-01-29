@@ -90,6 +90,42 @@
         <button class="button" type="submit">Votar cartel</button>
       </fieldset>
     </form>
+
+    <h1>¿Cuál es mi CIAL?</h1>
+    <section class="flex-column gap-1-5 margin-bt-6">
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 1</div>
+        <div class="data-box bordered">Entrar al portal de <a href="https://www.gobiernodecanarias.org/educacion/PEKWEB/Ekade">Pincel Ekade</a></div>
+        <div class="data-box bordered flex-column centered">
+          <img src="../img/ekade.png" class="max-width">
+        </div>
+      </div>
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 2</div>
+        <div class="data-box bordered">Logear con tu credencial</div>
+        <div class="data-box bordered flex-column centered">
+          <img src="../img/login.png" class="max-width">
+        </div>
+      </div>
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 3</div>
+        <div class="data-box bordered">Tu CIAL se encuentra en la zona azul</div>
+        <div class="data-box bordered flex-column centered">
+          <img src="../img/gestion.png" class="max-width">
+        </div>
+      </div>
+    </section>
+
+    <h1>¿Cuál es mi PIN?</h1>
+    <section class="flex-column gap-1-5 margin-bt-6">
+      <div class="flex-column gap-1">
+        <div class="data-box background-3 font-bold text-align-center">Paso 1</div>
+        <div class="data-box bordered">Tu PIN son los últimos 4 dígitos de tu DNI sin letra</div>
+        <div class="data-box bordered flex-column centered">
+          <img src="../img/dni.png" class="max-width">
+        </div>
+      </div>
+    </section>
   </main>
 
 

@@ -1,188 +1,151 @@
-@import url('./base/base.css');
-@import url('./base/normalize.css');
+/* Común */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.data-box {
+  max-width: 100%;
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+.gap-1-5 {
+  gap: 1.5rem;
+}
+
+.margin-bt-6 {
+  margin-bottom: 6rem;
+}
+
+.margin-bt-20 {
+  margin-bottom: 20rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.background-3 {
+  background-color: var(--blue3);
+}
+
+.bordered {
+  border: 2px solid var(--blue3);
+}
+
+.border-none {
+  border: none;
+}
+
+.min-width {
+  min-width: fit-content;
+}
+
+.max-width {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+
+.frame {
+  width: 100%;
+  height: 50rem;
+}
+
+/* Zona alert */
 
 .alert {
   background-color: var(--black);
   color: var(--white);
-  text-align: center;
   font-weight: bold;
   font-size: 20px;
 }
 
-/* Contenedor principal */
-.container {
-    max-width: 95%;
-    margin: 0 auto;
-    min-height: 100%;
+.gold {
+  background-color: gold;
+  height: 20rem;
+  width: 100%;
+  border-radius: 1rem;
+  transform: translateY(-320%);
+  z-index: 1;
 }
 
-.container h1 {
-    margin-left: 20px;
-    text-align: left;
+.silver {
+  background-color: silver;
+  height: 20rem;
+  width: 100%;
+  border-radius: 1rem;
+  transform: translateY(150%);
 }
 
-/* Sección del cuadro azul */
-#entrega-premios {
-    background-color: var(--blue3);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    width: 98%;
-    margin: 20px auto;
+.bronze {
+  background-color: #cd7f32;
+  height: 20rem;
+  width: 100%;
+  border-radius: 1rem;
+  transform: translateY(630%);
 }
 
-#entrega-premios h2 {
-    margin: 0;
-    font-size: 24px;
-    color: var(--black);
+.relative {
+  position: relative;
 }
 
-#entrega-premios p,
-#entrega-premios h3 {
-    font-size: 1.8rem;
-    color: var(--black);
-    margin: 10px 0 0;
+.absolute {
+  position: absolute;
 }
 
-/* Contenedor de resultados */
-.resultados {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    margin-top: 40px;
-    gap: 1rem;
-    position: relative;
+.index-2 {
+  z-index: 2;
 }
 
-/* Tarjetas de los ganadores */
-.top {
-    text-align: center;
-    padding: 10px;
-    background-color: var(--white);
-    border: 2px solid var(--blue2);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    margin-top: 50px;
+.background-white {
+  background-color: var(--white);
 }
 
-.top h4 {
-    font-size: 1.8rem;
-    color: var(--black);
-    margin-bottom: 12px;
-}
+@media (min-width: 1920px) {
+  .podio-big {
+    display:flex;
+    flex-direction: row;
+    gap: 6rem;
+  }
 
-.top img.cartel-imagen {
-    width: 80%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background-color: var(--gray);
-}
-
-.top p {
-    margin: 5px 0;
-    font-size: 1.8rem;
-    color: var(--black);
-}
-
-/* Base del podio */
-.podio-base {
-    width: 32%;
-    height: 30px;
-    border-radius: 0 0 10px 10px;
-    position: absolute;
-    bottom: 0;
-}
-
-/* Oro */
-.podio-base.gold {
+  .gold {
     background-color: gold;
-    height: 130px;
-    transform: translateX(-105%);
-}
+    height: 30rem;
+    width: 40rem;
+    border-radius: 1rem;
+    transform: translateY(100%) translateX(-102%);
+    z-index: 1;
+  }
 
-/* Plata */
-.podio-base.silver {
+  .silver {
     background-color: silver;
-    height: 100px;
-    transform: translateX(0%);
-}
+    height: 25rem;
+    width: 40rem;
+    border-radius: 1rem;
+    transform: translateY(130%) translateX(0);
+  }
 
-/* Bronce */
-.podio-base.bronze {
+  .bronze {
     background-color: #cd7f32;
-    height: 70px;
-    transform: translateX(105%);
-}
-
-/* Posicionamiento para las tarjetas */
-.resultados > .top:nth-child(1) {
-    transform: translateY(-70px);
-}
-
-.resultados > .top:nth-child(2) {
-    transform: translateY(-50px);
-}
-
-.resultados > .top:nth-child(3) {
-    transform: translateY(-30px);
-}
-
-
-/* Responsivo para móviles pequeños (480px) */
-@media screen and (max-width: 480px) {
-    .container h1 {
-        font-size: 1.8rem; /* Texto aún más pequeño */
-    }
-
-    #entrega-premios h2 {
-        font-size: 1.8rem; /* Ajusta el tamaño del texto */
-    }
-
-    #entrega-premios p,
-    #entrega-premios h3 {
-        font-size: 1.8rem;
-    }
-
-    .top {
-        width: 100%; /* Tarjetas ocupan todo el ancho */
-        margin-top: 50px;
-    }
-
-    .resultados {
-        flex-direction: column; /* Las tarjetas se colocan verticalmente */
-        gap: 20px; /* Menor espacio entre elementos */
-    }
-
-    /* Base del podio ajustada */
-    .podio-base {
-        width: 240px; /* Aumento el ancho */
-        height: 20px; /* Aumento la altura */
-    }
-
-    .podio-base.gold {
-        transform: scaleX(1.9) scaleY(0.75) translateY(-1900px); /* Ajuste ligero para la base de oro */
-        margin-right: 85px;
-        
-    }
-
-    .podio-base.silver {
-        transform: scaleX(1.9) scaleY(0.75) translateY(-950px); /* Ajuste ligero para la base de plata */
-        margin-right: 85px;
-        
-    }
-
-    .podio-base.bronze {
-        transform: scaleX(1.9) scaleY(0.75) ; /* Ajuste ligero para la base de bronce */
-        margin-right: 85px;
-        
-    }
+    height: 20rem;
+    width: 40rem;
+    border-radius: 1rem;
+    transform: translateY(175%) translateX(102%);
+  }
 }

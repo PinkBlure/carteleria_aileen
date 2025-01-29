@@ -14,14 +14,13 @@
 
 <body>
 
-  <section class="alert">
+  <section class="alert text-align-center">
     <?php
     require_once "../components/component_alert.php";
     ?>
   </section>
 
   <div>
-
     <header class="header_container">
       <a href="../../index.php" class="logo_sagaseta_container"><img src="../img/logo_sagaseta.svg" alt="logo" class="logo_sagaseta"></a>
       <h1 class="header_title">Concurso día de Canarias</h1>
@@ -35,38 +34,31 @@
   </div>
 
   <main>
-    <section class="container">
-      <h1>Resultados del concurso</h1>
-      <section id="entrega-premios">
-        <h2>¡Felicidades a los Ganadores!</h2>
-        <p>Hoy, 29 de mayo, se realizará la entrega de premios del Concurso del día de Canarias.</p>
-        <p>Gracias a todos por participar y felicidades a los ganadores.</p>
-        <h3>TOP 3 Carteles</h3>
-      </section>
+    <h1>Resultados del concurso</h1>
 
-      <div class="resultados">
-        <?php
-        // Asegúrate de incluir correctamente el archivo que contiene la función getResults()
-        require_once "../db/cx_results.php"; // Ruta al archivo que contiene la función getResults()
+    <section class="data-box flex-column bordered margin-bt-6 text-align-center">
+      <h2>¡Felicidades a los Ganadores!</h2>
+      <p>Hoy, 29 de mayo, se realizará la entrega de premios del Concurso del día de Canarias.</p>
+      <p>Gracias a todos por participar y felicidades a los ganadores.</p>
+    </section>
 
-        // Llamada a la función getResults() para obtener los resultados
-        $resultados = getResults();
+    <h1>Top carteles del concurso</h1>
 
-        // Verificar si la consulta devuelve datos
-        if ($resultados && count($resultados) > 0) {
-          // Recorrer los resultados y mostrarlos
-          $top = 1;
-          foreach ($resultados as $resultado) {
-            echo "<div class='top'>";
-            echo "<h4>TOP " . $top++ . "</h4>";
+    <section class="flex-column centered relative podio-big">
 
-            // Si la columna 'imagen' contiene datos binarios, entonces se debe convertir en una imagen
+      <?php
+      require_once "../db/cx_results.php";
+      $resultados = getResults();
+
+      if ($resultados && count($resultados) > 0) {
+        $top = 1;
+        foreach ($resultados as $resultado) {
+          echo "<div class='data-box bordered text-align-center podio-card margin-bt-20 index-2 background-white'>";
+            echo "<h2>TOP " . $top++ . "</h2>";
+
             $imagen = $resultado['imagen'];
-
-            // Verifica si la imagen está almacenada como binario (BLOB)
             if ($imagen) {
-              // Muestra la imagen directamente como un flujo de datos
-              echo "<img src='data:image/jpeg;base64," . base64_encode($imagen) . "' alt='Imagen del Cartel' class='cartel-imagen'>";
+              echo "<iframe class='frame bordered' src='data:application/pdf;base64," . base64_encode($resultado['imagen']) . "'></iframe>";
             } else {
               echo "<p>No se encontró imagen.</p>";
             }
@@ -74,16 +66,15 @@
             echo "<p><strong>Nombre:</strong> " . htmlspecialchars($resultado['nombre']) . "</p>";
             echo "<p><strong>Curso:</strong> " . htmlspecialchars($resultado['curso']) . "</p>";
             echo "<p><strong>Título:</strong> " . htmlspecialchars($resultado['titulo']) . "</p>";
-            echo "</div>";
-          }
-          echo "<div class='podio-base gold'></div>";
-          echo "<div class='podio-base silver'></div>";
-          echo "<div class='podio-base bronze'></div>";
-        } else {
-          echo "<p>No hay resultados disponibles.</p>";
+          echo "</div>";
         }
-        ?>
-      </div>
+        echo "<div class='gold absolute'></div>";
+        echo "<div class='silver absolute'></div>";
+        echo "<div class='bronze absolute'></div>";
+      } else {
+        echo "<p class='data-box bordered'>No hay resultados disponibles.</p>";
+      }
+      ?>
     </section>
   </main>
 
