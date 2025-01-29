@@ -1,4 +1,3 @@
-<!--Comentario de Kevin en su parte del proyecto-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,14 +15,17 @@
 
 <body>
 
-  <section class="alert">
+  <section class="alert text-align-center">
     <?php
     require_once "../components/component_alert.php";
+
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
     ?>
   </section>
 
   <div>
-
     <header class="header_container">
       <a href="../../index.php" class="logo_sagaseta_container"><img src="../img/logo_sagaseta.svg" alt="logo" class="logo_sagaseta"></a>
       <h1 class="header_title">Concurso día de Canarias</h1>
@@ -37,25 +39,24 @@
   </div>
 
   <main>
-    <ul class="carteles">
-      <?php
-      // AQUÍ SE INYECTARÁN LOS CARTELES DESDE LA BD
+    <section class="data-box flex-column gap-1-5 gridded">
+    <?php
       require_once "../db/cx_gallery.php";
       $resultados = getGallery();
       if ($resultados && count($resultados) > 0) {
         foreach ($resultados as $resultado) {
-          echo "<li class='cartel'>";
-          //SIGUEN SIN PODER VERSE LAS IMAGENES
-          echo "<img class='img' src='" . base64_encode(htmlspecialchars($resultado['imagen'])) . "' alt='Imagen del Cartel'>";
-          echo "<p>Título: " . htmlspecialchars($resultado['titulo']) . "</p>";
-          echo "<a class='boton' href='vote.php?id=" . htmlspecialchars($resultado['id']) . "'>Votar</a>";
-          echo "</li>";
+          echo "<article class='data-box flex-column bordered centered'>";
+            echo "<iframe class='frame bordered' src='data:application/pdf;base64," . base64_encode($resultado['imagen']) . "'></iframe>";
+            echo "<h3>" . htmlspecialchars($resultado['titulo']) . "</h3>";
+            echo "<p>". htmlspecialchars($resultado['descripcion']) . "</p>";
+            echo "<a class='fake_button full-width-button' style='width=100%' href='vote.php?id=" . htmlspecialchars($resultado['id']) . "'>Votar</a>";
+          echo "</article>";
         }
       } else {
         echo "<p>No hay resultados disponibles.</p>";
       }
       ?>
-    </ul>
+    </section>
   </main>
 
   <footer class="footer_container">
