@@ -31,8 +31,13 @@
     <a href="src/pages/gallery.php">Galería de carteles</a>
   </div>
 
-
   <main>
+
+    <audio autoplay loop hidden>
+      <source src="src/audio/himno_canarias.ogg" type="audio/ogg">
+      <source src="src/audio/himno_canarias.mp3" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
 
     <h1>Fechas del concurso</h1>
     <section class="flex-column gap-1-5 margin-bt-6">
